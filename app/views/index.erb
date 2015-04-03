@@ -1,0 +1,34 @@
+
+
+<div class="container">
+	<h3>Train Uploader!</h3>
+	<form action="/upload" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file">
+		<input type="submit" value="CSV Upload">
+	</form>
+
+	<h3 style='margin-top:50px'>Train Info!</h3>
+
+
+	<table style="width:100%;">
+		<tr>
+			<th>TRAIN_LINE</th>
+			<th>ROUTE_NAME</th>
+			<th>RUN_NUMBER</th>
+			<th>OPERATOR_ID</th>
+		</tr>
+		<% if @trains != nil%>
+		<h3>There are <%=@trains.length%> trains!</h3>
+			<% @trains.each do |train| %>
+			<tr>
+				<td><%=train.TRAIN_LINE%></td>
+				<td><%=train.ROUTE_NAME%></td>
+				<td><%=train.RUN_NUMBER%></td>
+				<td><%=train.OPERATOR_ID%></td>
+			</tr>
+			<% end%>
+		<% end%>
+
+	</table>
+
+</div>
